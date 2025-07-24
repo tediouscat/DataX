@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * <p/>
  */
 public enum DataBaseType {
-    MySql("mysql", "com.mysql.jdbc.Driver"),
+    MySql("mysql", "com.mysql.cj.jdbc.Driver"),
     Tddl("mysql", "com.mysql.jdbc.Driver"),
     DRDS("drds", "com.mysql.jdbc.Driver"),
     Oracle("oracle", "oracle.jdbc.OracleDriver"),
@@ -47,6 +47,7 @@ public enum DataBaseType {
         String suffix = null;
         switch (this) {
             case MySql:
+                break;
             case DRDS:
             case OceanBase:
                 suffix = "yearIsDateType=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&rewriteBatchedStatements=true";
@@ -90,12 +91,12 @@ public enum DataBaseType {
         String suffix = null;
         switch (this) {
             case MySql:
-                suffix = "yearIsDateType=false&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true&tinyInt1isBit=false";
-                if (jdbc.contains("?")) {
-                    result = jdbc + "&" + suffix;
-                } else {
-                    result = jdbc + "?" + suffix;
-                }
+//                suffix = "yearIsDateType=false&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true&tinyInt1isBit=false";
+//                if (jdbc.contains("?")) {
+//                    result = jdbc + "&" + suffix;
+//                } else {
+//                    result = jdbc + "?" + suffix;
+//                }
                 break;
             case ADB:
                 suffix = "yearIsDateType=false&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true&tinyInt1isBit=false";
